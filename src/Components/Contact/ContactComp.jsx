@@ -9,8 +9,8 @@ import gmail from "../../Assets/gmail.png";
 
 const ContactComp = () => {
   return (
-    <div className="flex justify-center items-center">
-      <div className=" w-[1000px]  my-4  bg-slate-300 rounded-md p-10">
+    <div className="flex justify-center items-center bg-contact bg-cover">
+      <div className=" w-[1000px]  my-4 backdrop-blur-lg rounded-md p-10 shadow-xl  drop-shadow-lg">
         <div className="flex flex-col md:text-center">
           <span className="text-3xl font-medium">Contact Us</span>
           <span className=" font-medium">
@@ -30,7 +30,7 @@ const ContactComp = () => {
               className="outline-none my-4 rounded-md  w-[250px] h-9 p-2"
             />
             <textarea
-            placeholder="Message"
+              placeholder="Message"
               className="rounded-md p-2"
               name=""
               id=""

@@ -1,12 +1,13 @@
 import React from "react";
+import login from "../../Used Images/LoginImage.png";
 
 const LoginComp = () => {
   return (
-    <div className="mt-10 w-full grid grid-cols-1 md:grid-cols-2">
+    <div className=" w-full grid grid-cols-1 md:grid-cols-2 bg-login bg-cover p-10 py-20">
       <div className=" place-self-center">
-        <img src="" alt="" />
+        <img src={login} alt="" className="w-[500px] md:mb-6 " />
       </div>
-      <div className="place-self-left w-[500px] h-[500px] bg-[#E6EFF8] rounded-lg p-10 flex flex-col items-center ">
+      <div className="md:place-self-left place-self-center w-[500px] h-[500px] bg-[#E6EFF8] rounded-lg p-10 flex flex-col items-center ">
         <span className=" text-3xl font-medium font-mono ">Login</span>
         <input
           placeholder="Username"

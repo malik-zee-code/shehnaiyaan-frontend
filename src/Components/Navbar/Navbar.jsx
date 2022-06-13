@@ -2,13 +2,18 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import logo from "../../Assets/NavBarLogoTrans.png";
+import drop from "../../Assets/DropDown-purple.png";
 
 const Navbar = () => {
   const [toggler, setToggler] = useState();
   return (
-    <div className="w-full h-auto bg-white ">
-      <div className="flex justify-around items-center p-4">
-        <div className="text-2xl font-medium">LOGO</div>
+    <div className="w-full h-auto bg-white shadow-md z-20">
+      <div className="flex justify-around items-center  p-4 md:p-0">
+        <div className=" font-medium">
+          {" "}
+          <img src={logo} alt="" className="w-[180px] " />{" "}
+        </div>
         <div className="sm:flex hidden ">
           <ul className="flex justify-between text-bold text-lg font-sans ">
             <li className="mx-5">
@@ -22,18 +27,24 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <div className=" sm:flex hidden ">
+        <div className=" sm:flex hidden  ">
           <Link
             to={"/login"}
-            className=" text-center mx-3 p-3 bg-indigo-500 rounded-tl-[18px] rounded-br-[18px] text-white px-8"
+            className=" flex text-center mx-3 p-3 bg-indigo-500 rounded-tl-[18px] rounded-br-[18px] text-white px-8"
           >
             LOGIN
+            {/* <img src={drop} alt="" className=" ml-7 w-[18px] h-[18px]" /> */}
           </Link>
           <Link
             to={"/register"}
-            className=" text-center px-8 p-3 bg-indigo-500 text-white rounded-tl-[18px] rounded-br-[18px] "
+            className=" flex text-center px-8 p-3 bg-indigo-500 text-white rounded-tl-[18px] rounded-br-[18px] "
           >
             REGISTER
+            {/* <img
+              src={drop}
+              alt=""
+              className=" ml-7 w-[18px] h-[18px] "
+            /> */}
           </Link>
         </div>
 

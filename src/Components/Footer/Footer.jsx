@@ -14,19 +14,35 @@ const Footer = () => {
         <span className="">
           <FontAwesomeIcon icon={faPhone} className="mr-2" /> 038273647866
         </span>
-        <span className="">
-          <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
+        <span className="break-words">
+          <FontAwesomeIcon icon={faEnvelope} className="mr-2 " />
           shehnaiyan.business@gmail.com
         </span>
         <span></span>
       </div>
       <div className="flex flex-col items-center">
-        <span className=" text-sm md:text-lg font-bold ">Follow Us</span>
+        <span className=" text-sm  md:text-lg font-bold ">Follow Us</span>
         <div className=" flex justify-between text-sm md:text-lg ">
-          <img src={instagram} alt="" className="w-[40px] cursor-pointer p-2" />
-          <img src={facebook} alt="" className="w-[40px] cursor-pointer p-2 " />
-          <img src={linkedIn} alt="" className="w-[40px] cursor-pointer p-2" />
-          <img src={gmail} alt="" className="w-[40px] cursor-pointer p-2" />
+          <img
+            src={instagram}
+            alt=""
+            className=" w-[30px] md:w-[40px] cursor-pointer p-2"
+          />
+          <img
+            src={facebook}
+            alt=""
+            className="md:w-[40px] w-[30px]  cursor-pointer p-2 "
+          />
+          <img
+            src={linkedIn}
+            alt=""
+            className="md:w-[40px] w-[30px]  cursor-pointer p-2"
+          />
+          <img
+            src={gmail}
+            alt=""
+            className="md:w-[40px] w-[30px]  cursor-pointer p-2"
+          />
         </div>
       </div>
     </div>

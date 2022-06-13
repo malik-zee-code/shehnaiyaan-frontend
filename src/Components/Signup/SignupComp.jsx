@@ -1,15 +1,15 @@
 import React from "react";
-import pix from "../../Assets/alaksiej-carankievic-dKEFdOwY2hQ-unsplash.jpg";
+import pix from "../../Used Images/RegistrationImage.jpeg";
 
 const SignupComp = () => {
   return (
-    <div className="flex items-center justify-center p-10">
+    <div className="flex items-center justify-center p-10 bg-register bg-cover ">
       <div className=" flex w-[900px] bg-[#5DB6BC]  rounded-lg  ">
-        <div className=" md:flex-[8] ">
+        <div className=" hidden md:flex flex-[8]  ">
           <img
             src={pix}
             alt=""
-            className="h-auto rounded-bl-lg rounded-tl-lg "
+            className=" md:h-full rounded-bl-lg rounded-tl-lg "
           />
         </div>
         <div className=" flex-[8] flex flex-col items-center p-10 ">

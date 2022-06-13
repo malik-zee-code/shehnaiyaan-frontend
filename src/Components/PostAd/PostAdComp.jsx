@@ -2,13 +2,13 @@ import React from "react";
 
 const PostAdComp = () => {
   return (
-    <div className="flex justify-center items-center ">
-      <div className=" w-[1000px]  bg-slate-300 my-3 rounded-md p-8">
+    <div className="flex justify-center items-center bg-postAd bg-cover  ">
+      <div className=" w-[1000px]  bg-transparent backdrop-blur-lg shadow-2xl my-20 rounded-md p-8">
         <span className="text-2xl font-medium ">
           Enter your Credentials for Posting Ads
         </span>
         <form className="grid  grid-cols-1 sm:grid-cols-2  md:grid-cols-3 gap-8">
-          <div className="">
+          <div className="mr-3">
             <input
               placeholder="Applicant's Name*"
               required
@@ -57,7 +57,7 @@ const PostAdComp = () => {
               />
             </div>
           </div>
-          <div className="">
+          <div className="mr-3">
             <input
               placeholder=" Guardian's Name"
               required
@@ -113,7 +113,7 @@ const PostAdComp = () => {
               />
             </div>
           </div>
-          <div className="mt-10 flex flex-col ">
+          <div className="mt-10 flex flex-col mr-3 ">
             <input
               placeholder="Guardian's Salary"
               type="text"

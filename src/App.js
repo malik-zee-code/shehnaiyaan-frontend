@@ -8,10 +8,11 @@ import Login from "./Pages/Login/Login";
 import Signup from "./Pages/Signup/Signup";
 import PostAd from "./Pages/PostAd/PostAd";
 import Contact from "./Pages/Contact/Contact";
+import Donate from "./Pages/Donate/Donate";
 
 const App = () => {
   return (
-    <div className=" w-screen min-h-screen flex flex-col  ">
+    <div className="App w-screen min-h-screen flex flex-col  ">
       <Navbar />
       <Routes>
         <Route path="/home" element={<Landing />} />
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/register" element={<Signup />} />
         <Route path="/postAd" element={<PostAd />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/donate" element={<Donate />} />
       </Routes>
       <Footer />
     </div>
