@@ -16,13 +16,13 @@ const Navbar = () => {
         </div>
         <div className="sm:flex hidden ">
           <ul className="flex justify-between text-bold text-lg font-sans ">
-            <li className="mx-5">
+            <li className="mx-5 hover:underline hover:text-slate-500 ">
               <Link to={"/home"}>Home</Link>
             </li>
-            <li className="mx-5">
+            <li className="mx-5  hover:underline hover:text-slate-500">
               <Link to={"/about"}>About</Link>
             </li>
-            <li className="mx-5">
+            <li className="mx-5  hover:underline hover:text-slate-500">
               <Link to={"/contact"}>Contact</Link>
             </li>
           </ul>
@@ -30,14 +30,14 @@ const Navbar = () => {
         <div className=" sm:flex hidden  ">
           <Link
             to={"/login"}
-            className=" flex text-center mx-3 p-3 bg-indigo-500 rounded-tl-[18px] rounded-br-[18px] text-white px-8"
+            className=" flex text-center mx-3 p-3 bg-indigo-500 hover:bg-indigo-400 rounded-tl-[18px] rounded-br-[18px] text-white px-8"
           >
             LOGIN
             {/* <img src={drop} alt="" className=" ml-7 w-[18px] h-[18px]" /> */}
           </Link>
           <Link
             to={"/register"}
-            className=" flex text-center px-8 p-3 bg-indigo-500 text-white rounded-tl-[18px] rounded-br-[18px] "
+            className=" flex text-center px-8 p-3 bg-indigo-500 hover:bg-indigo-400 text-white rounded-tl-[18px] rounded-br-[18px] "
           >
             REGISTER
             {/* <img

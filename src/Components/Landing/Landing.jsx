@@ -4,6 +4,8 @@ import pic1 from "../../Used Images/BedSet(WhatWeOffer).png";
 import pic2 from "../../Used Images/Appliances(WhatWeOffer).png";
 import pic3 from "../../Used Images/Crock(WhatWeOffer).png";
 import pic4 from "../../Used Images/AboutUs(Home).png";
+
+import { motion } from "framer-motion";
 const Landing = () => {
   return (
     <div className=" w-full p-20 bg-home bg-cover bg-no-repeat ">
@@ -13,7 +15,11 @@ const Landing = () => {
             Let's Bring <br /> Smiles Together
           </span>
 
-          <div className="mt-7 flex-5 ">
+          <motion.div
+            className=" lazy-div mt-7 flex-5 "
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+          >
             <span>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos ab
               eveniet in modi est aliquid enim quas corporis similique itaque
@@ -27,7 +33,7 @@ const Landing = () => {
               deleniti animi facilis architecto atque deserunt autem, reiciendis
               non id libero. Sit, quasi cum vitae voluptatem odio qui harum!
             </span>
-          </div>
+          </motion.div>
         </div>
         <img
           src={pic}
@@ -37,7 +43,9 @@ const Landing = () => {
       </div>
 
       <div className="flex flex-col items-center mt-32">
-        <span className="text-5xl font-serif ">What we Offer</span>
+        <motion.span className="text-5xl font-serif ">
+          What we Offer
+        </motion.span>
         <span className="text-center mt-5">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. <br /> Nisi
           expedita rerum quaerat. Natus, dolorum odit! Aut numquam voluptate
@@ -45,9 +53,36 @@ const Landing = () => {
         </span>
 
         <div className="grid grid-cols-2 md:grid-cols-3  gap-8 mt-10 ">
-          <img src={pic1} alt="" className=" w-[318px] " />
-          <img src={pic2} alt="" className=" w-[318px] " />
-          <img src={pic3} alt="" className=" w-[318px] " />
+          <div className=" flex flex-col items-center shadow-md hover:shadow-2xl h-[550px] bg-white rounded-md">
+            <img
+              src={pic1}
+              alt=""
+              className=" w-[318px] rounded-t-md  rounded-bl-[8rem] rounded-br-[8rem] "
+            />
+            <span className="mt-9 text-lg font-medium text-black">
+              Bed Set
+            </span>
+          </div>
+          <div className=" flex flex-col items-center shadow-md hover:shadow-2xl h-[550px] bg-white rounded-md">
+            <img
+              src={pic2}
+              alt=""
+              className=" w-[318px] rounded-t-md rounded-bl-[8rem] rounded-br-[8rem]"
+            />
+            <span className="mt-9 text-black text-lg font-medium">
+              Electric Appliances
+            </span>
+          </div>
+          <div className=" flex flex-col items-center shadow-md hover:shadow-2xl h-[550px] bg-white rounded-md">
+            <img
+              src={pic3}
+              alt=""
+              className=" w-[318px] rounded-t-md rounded-b-[8rem]"
+            />
+            <span className="mt-9 text-black text-lg font-medium">
+              Cockery
+            </span>
+          </div>
         </div>
       </div>
 
