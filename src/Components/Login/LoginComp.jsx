@@ -20,7 +20,7 @@ const LoginComp = () => {
           className="outline-none  rounded-md  w-[250px] h-9 p-2"
         />
 
-        <a href="#" className="mt-10 text-indigo-400">
+        <a href="/" className="mt-10 text-indigo-400">
           {" "}
           Forgot Password ?
         </a>

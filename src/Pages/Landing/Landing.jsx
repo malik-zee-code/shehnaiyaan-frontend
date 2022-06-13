@@ -1,6 +1,6 @@
 import React from "react";
 import LandingComp from "../../Components/Landing/Landing";
-import Home from "../../Background/Home(b.g).png";
+// import Home from "../../Background/Home(b.g).png";
 
 const Landing = () => {
   return (

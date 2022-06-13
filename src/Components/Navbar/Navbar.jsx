@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../Assets/NavBarLogoTrans.png";
-import drop from "../../Assets/DropDown-purple.png";
+// import drop from "../../Assets/DropDown-purple.png";
 
 const Navbar = () => {
   const [toggler, setToggler] = useState();
