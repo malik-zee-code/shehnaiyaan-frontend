@@ -76,36 +76,42 @@ const SignupComp = () => {
             Register
           </span>{" "}
           <input
+            required
             onChange={(e) => setFullname(e.target.value)}
             placeholder="Full Name"
             type="text"
             className="outline-none mt-10 rounded-md my-4 w-[250px] h-9 p-2"
           />
           <input
+            required
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
             type="text"
             className="outline-none rounded-md w-[250px] h-9 p-2"
           />
           <input
+            required
             onChange={(e) => setContact(e.target.value)}
             placeholder="Contact No"
             type="text"
             className="outline-none rounded-md my-4 w-[250px] h-9 p-2"
           />
           <input
+            required
             onChange={(e) => setCNIC(e.target.value)}
             placeholder="CNIC"
             type="text"
             className="outline-none rounded-md w-[250px] h-9 p-2"
           />
           <input
+            required
             onChange={(e) => setAddress(e.target.value)}
             placeholder="Address"
             type="text"
             className="outline-none rounded-md my-4 w-[250px] h-9 p-2"
           />
           <input
+            required
             placeholder="Password"
             type="password"
             className="outline-none  rounded-md  w-[250px] h-9 p-2"
@@ -113,14 +119,14 @@ const SignupComp = () => {
           />
           <div className="flex flex-col items-center mt-2 ">
             <button
-              className=" w-full p-3 my-3 bg-indigo-500 rounded-md  text-white px-8 text-center"
+              className=" btn border-none hover:bg-indigo-600 w-full p-3 my-3 bg-indigo-500 rounded-md  text-white px-8 text-center"
               onClick={() => setUserType("Donor")}
             >
               Register as Donor
             </button>
-            <span>OR</span>
+            <div className="text-slate-800 divider">OR</div>
             <button
-              className=" w-full p-3 my-3 bg-indigo-500 rounded-md  text-white px-8 text-center"
+              className=" btn border-none hover:bg-indigo-600 w-full p-3 my-3 bg-indigo-500 rounded-md  text-white px-8 text-center"
               onClick={() => setUserType("Receiver")}
             >
               {" "}

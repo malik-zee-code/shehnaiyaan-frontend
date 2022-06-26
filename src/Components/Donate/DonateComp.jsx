@@ -219,7 +219,7 @@ const DonateComp = () => {
                               })
                             }
                           >
-                            Close
+                            Back
                           </label>
                           <button
                             className="btn bg-indigo-500 w-[200px] border-none text-white hover:bg-indigo-700"

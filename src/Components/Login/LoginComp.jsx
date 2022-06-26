@@ -59,12 +59,14 @@ const LoginComp = () => {
           Login
         </span>
         <input
+          required
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
           type="email"
           className="outline-none mt-10 rounded-md my-4 w-[250px] h-9 p-2"
         />
         <input
+          required
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
           type="password"
@@ -99,7 +101,7 @@ const LoginComp = () => {
 
         <div className="flex flex-col items-center mt-2 ">
           <button
-            className=" w-full p-3 my-3 bg-indigo-500 rounded-md  text-white px-8 text-center"
+            className=" btn border-none w-full p-3 my-3 hover:bg-indigo-600 bg-indigo-500   text-white px-8 text-center"
             // disabled={}
           >
             Login

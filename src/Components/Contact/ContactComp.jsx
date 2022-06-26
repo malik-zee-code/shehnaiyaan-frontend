@@ -32,7 +32,9 @@ const ContactComp = () => {
         onSubmit={submitHandler}
       >
         <div className="flex flex-col md:text-center">
-          <span className="text-3xl font-medium text-slate-900">Contact Us</span>
+          <span className="text-3xl font-medium text-slate-900">
+            Contact Us
+          </span>
           <span className=" font-medium text-slate-800">
             Have any Questions we'd love to hear from you
           </span>
@@ -64,14 +66,20 @@ const ContactComp = () => {
           <div className="flex flex-col md:place-self-center">
             <span className="text-2xl text-slate-800">Quick Contact</span>
             <span className="mt-5 text-lg text-slate-700">
-              <FontAwesomeIcon icon={faPhone} className="mr-2 text-green-600" /> 038273647866
+              <FontAwesomeIcon icon={faPhone} className="mr-2 text-green-600" />{" "}
+              038273647866
             </span>
             <span className="text-lg text-slate-700">
-              <FontAwesomeIcon icon={faEnvelope} className="mr-2 text-purple-500" />
+              <FontAwesomeIcon
+                icon={faEnvelope}
+                className="mr-2 text-purple-500"
+              />
               shehnaiyan.business@gmail.com
             </span>
 
-            <span className="text-2xl mt-4 text-slate-800 font-medium">Other Ways to Contact Us</span>
+            <span className="text-2xl mt-4 text-slate-800 font-medium">
+              Other Ways to Contact Us
+            </span>
             <div className=" mt-3 flex text-sm md:text-lg ">
               <img
                 src={instagram}
@@ -92,7 +100,7 @@ const ContactComp = () => {
             </div>
           </div>
         </div>
-        <button className=" w-full p-3 mt-4 bg-indigo-500 rounded-md  text-white px-8 text-center">
+        <button className=" btn border-none hover:bg-indigo-700 w-full p-3 mt-4 bg-indigo-500 rounded-md  text-white px-8 text-center">
           {" "}
           Send
         </button>
