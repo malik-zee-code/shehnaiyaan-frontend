@@ -38,17 +38,17 @@ const AboutComp = () => {
     <div className="w-full flex justify-center items-center bg-about bg-cover h-full bg-no-repeat p-4  ">
       {/* Container */}
       <div className=" my-5 w-[700px] h-auto z-20 backdrop-blur-md rounded-2xl shadow-2xl border-slate-300 p-4 flex flex-col items-center text-center">
-        <span className=" text-2xl font-medium ">Our Mission</span>
-        <span className="my-3">To remove Poverty</span>
-        <span className=" text-2xl font-medium my-3">About Us</span>
-        <p>
+        <span className=" text-2xl font-medium text-slate-800">Our Mission</span>
+        <span className="my-3 text-slate-700">To remove Poverty</span>
+        <span className=" text-2xl font-medium my-3 text-slate-800">About Us</span>
+        <p className="text-slate-700">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero quo
           expedita non possimus vel? Voluptatum tempora quidem natus.
         </p>
 
         <br />
 
-        <p>
+        <p className="text-slate-700 ">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nostrum
           exercitationem eveniet, pariatur dolore consequuntur quia earum dicta
           corrupti commodi hic repudiandae deserunt quibusdam blanditiis
@@ -63,12 +63,12 @@ const AboutComp = () => {
           quam!
         </p>
 
-        <span className="text-2xl font-medium my-3">Our Team</span>
+        <span className="text-2xl font-medium my-3 text-slate-800">Our Team</span>
 
-        <div className="flex justify-around mt-4 ">
+        <div className="flex justify-around mt-4 text-slate-700">
           <div className="grid  grid-cols-2 md:grid-cols-4">
-            {DummyUsers.map((usr) => (
-              <div className="flex flex-col mx-3 items-center">
+            {DummyUsers.map((usr, i) => (
+              <div className="flex flex-col mx-3 items-center" key={i}>
                 <img
                   src={usr.img}
                   alt=""

@@ -9,6 +9,8 @@ import Signup from "./Pages/Signup/Signup";
 import PostAd from "./Pages/PostAd/PostAd";
 import Contact from "./Pages/Contact/Contact";
 import Donate from "./Pages/Donate/Donate";
+import Admin from "./Pages/Admin/Admin";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
@@ -22,8 +24,10 @@ const App = () => {
         <Route path="/postAd" element={<PostAd />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/donate" element={<Donate />} />
+        <Route path="/admin/*" element={<Admin />} />
       </Routes>
       <Footer />
+      <ToastContainer />
     </div>
   );
 };

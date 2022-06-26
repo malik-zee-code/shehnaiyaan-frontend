@@ -12,7 +12,11 @@ module.exports = {
         login: "url('/src/Background/Login(b.g).png')",
         register: "url('/src/Background/Register(b.g).png')",
       },
+      screens: {
+        md: "960px",
+        lg: "1280px",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 };
