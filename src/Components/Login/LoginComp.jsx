@@ -43,7 +43,18 @@ const LoginComp = () => {
           progress: undefined,
         });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        toast.error("Please check your credentials!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        console.log(err);
+      });
   };
   console.log(userType);
   return (

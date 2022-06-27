@@ -102,8 +102,7 @@ const PostAdComp = () => {
         });
       });
   };
-
-  
+  console.log(state.itemsNeeded);
 
   const handleCheckBox = (e) => {
     const { value, checked } = e.target;
@@ -163,15 +162,18 @@ const PostAdComp = () => {
               type="text"
               className="outline-none  rounded-md  w-[250px] h-9 p-2 border text-slate-700"
             />{" "}
-            <input
+            <select
+              className="select select-ghost max-w-xs w-[250px] h-4 my-3 focus:bg-slate-200 "
               onChange={(e) =>
                 setState({ ...state, houseOwner: e.target.value })
               }
-              placeholder="House Ownership*"
-              type="text"
-              required
-              className="outline-none  rounded-md my-4 w-[250px] h-9 p-2 border text-slate-700"
-            />
+            >
+              <option disabled selected>
+                House Ownership
+              </option>
+              <option value={"Own"}>Own</option>
+              <option value={"Rent"}>Rent</option>
+            </select>
             <input
               onChange={(e) =>
                 setState({ ...state, applicantJobOcc: e.target.value })
@@ -387,8 +389,6 @@ const PostAdComp = () => {
           {isLoading ? "Uploading" : "Submit"}
         </button>
       </form>
-
-      {/* <img src={state.CNICImage} alt="" /> */}
     </div>
   );
 };

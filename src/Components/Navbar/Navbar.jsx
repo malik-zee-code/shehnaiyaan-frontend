@@ -50,7 +50,7 @@ const Navbar = () => {
             </Link>
             <Link
               to={"/register"}
-              className=" btn border-none flex mr-10 text-center px-8 p-3 bg-indigo-500 hover:bg-indigo-400 text-white rounded-tl-[18px] rounded-br-[18px] "
+              className=" btn border-none flex mr-10 text-center px-8 p-3 bg-indigo-500 hover:bg-indigo-700 text-white rounded-tl-[18px] rounded-br-[18px] "
             >
               REGISTER
             </Link>

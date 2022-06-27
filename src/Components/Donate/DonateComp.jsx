@@ -1,9 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
+
 // import FsLightbox from "fslightbox-react";
 
 const DonateComp = () => {
   const [ads, setAds] = useState();
+  const [isLoading, setisLoading] = useState();
   const [toggler, setToggle] = useState();
   const [paymentInfo, setPaymentinfo] = useState({
     step: 0,
@@ -42,12 +45,50 @@ const DonateComp = () => {
     console.log(paymentInfo.amountImg);
   };
 
-  const donateHandler = () => {
-    const data = {};
+  const donateHandler = (id) => {
+    setisLoading(true);
+    const data = {
+      donationAmount: paymentInfo.donationAmount,
+      donationProof: paymentInfo.amountImg,
+    };
+
+    const config = {
+      headers: {
+        "x-auth-token": token,
+      },
+    };
     axios
-      .patch(`${process.env.REACT_APP_BASE_URL}/v1/ad`, data)
-      .then((data) => console.log(data.data))
-      .catch((err) => console.log(err));
+      .post(
+        `${process.env.REACT_APP_BASE_URL}/v1/donation/makeDonation/${id}`,
+        data,
+        config
+      )
+      .then((data) => {
+        setisLoading(false);
+        console.log(data.data);
+        toast.success("Successfully Donated", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      })
+      .catch((err) => {
+        setisLoading(false);
+        console.log(err);
+        toast.error(err.response.data.error, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      });
   };
 
   useEffect(() => {
@@ -63,8 +104,8 @@ const DonateComp = () => {
         </span>
         <div className="w-full h-auto mt-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
           {ads?.map((ads, i) => (
-            <form
-              className=" place-self-center w-[300px] h-[300px] rounded-md bg-white flex flex-col items-center p-5 mt-9"
+            <div
+              className=" place-self-center w-[300px] h-auto rounded-md bg-white flex flex-col items-center p-5 mt-9"
               key={i}
             >
               <h2 className="text-2xl font-medium text-slate-800">
@@ -75,7 +116,11 @@ const DonateComp = () => {
                   Items Needed:{" "}
                 </label>
                 <span className=" p-1 w-32 text-center border-2 rounded-[1rem] ml-3 text-slate-700">
-                  {ads.itemsNeeded}
+                  {ads.itemsNeeded.map((d) => (
+                    <ul className="  ">
+                      <li>{d}</li>
+                    </ul>
+                  ))}
                 </span>
               </div>
               <div className="flex items-center mt-2">
@@ -222,10 +267,12 @@ const DonateComp = () => {
                             Back
                           </label>
                           <button
-                            className="btn bg-indigo-500 w-[200px] border-none text-white hover:bg-indigo-700"
-                            onClick={donateHandler}
+                            className={`btn ${
+                              isLoading && "loading"
+                            } bg-indigo-500 w-[200px] border-none text-white hover:bg-indigo-700`}
+                            onClick={donateHandler.bind(null, ads._id)}
                           >
-                            Donate
+                            {isLoading ? "Donating" : "Donate"}
                           </button>
                         </div>
                       </div>
@@ -234,7 +281,7 @@ const DonateComp = () => {
                   )}
                 </div>
               </div>
-            </form>
+            </div>
           ))}
         </div>
       </div>

@@ -3,14 +3,16 @@ import FsLightbox from "fslightbox-react";
 import React, { useCallback, useState } from "react";
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const PendingAdDetail = () => {
-  const params = useParams();
-  const navigate = useNavigate();
   const [ad, setAd] = useState();
   const [toggler, setToggler] = useState(false);
   const productIndex = useState(0)[0];
   const [status, setStatus] = useState();
+  const [isLoading, setisLoading] = useState();
+  const params = useParams();
+  const navigate = useNavigate();
   console.log(params.id);
 
   const token = localStorage.getItem("token");
@@ -39,6 +41,8 @@ const PendingAdDetail = () => {
       },
     };
     if (status !== "Live") return;
+
+    setisLoading(true);
     axios
       .patch(
         `${process.env.REACT_APP_BASE_URL}/v1/ad/${ad._id}`,
@@ -46,8 +50,31 @@ const PendingAdDetail = () => {
         config
       )
       .then((data) => {
+        setisLoading(false);
+        toast.success("Successfully updated status!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
         navigate("/admin/pendingAds");
         console.log(data.data);
+      })
+      .catch((err) => {
+        setisLoading(false);
+        toast.error(err.response.data.error, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        console.log(err);
       });
   };
 
@@ -127,7 +154,7 @@ const PendingAdDetail = () => {
         </div>
 
         {/* ==================================== IMAGES ================================= */}
-        <div className="carousel w-full mt-10 h-[300px]">
+        <div className="carousel w-[400px] mt-10 h-[300px]">
           <div id="slide1" className="carousel-item relative w-full">
             <img
               src={ad?.electricityBillImage}
@@ -144,7 +171,7 @@ const PendingAdDetail = () => {
               </a>
             </div>
           </div>
-          <div id="slide2" className="carousel-item relative w-full">
+          <div id="slide2" className="carousel-item relative w-[400px]">
             <img
               src={ad?.CNICImage}
               className="w-full"
@@ -169,10 +196,12 @@ const PendingAdDetail = () => {
             Cancel
           </button>
           <button
-            className="btn btn-info outline-none text-white mt-5"
+            className={`btn ${
+              isLoading && "loading"
+            } btn-info outline-none text-white mt-5`}
             onClick={handleSubmit}
           >
-            Submit
+            {isLoading ? "Updating Status" : "Submit"}
           </button>
         </div>
       </div>
