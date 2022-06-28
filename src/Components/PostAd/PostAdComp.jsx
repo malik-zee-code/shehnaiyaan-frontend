@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -28,6 +29,8 @@ const PostAdComp = () => {
   });
 
   const [isLoading, setisLoading] = useState();
+
+  const navigate = useNavigate();
   //=========================== Image HANDLERS =========================================================
 
   const handleElectricityImage = (e) => {
@@ -86,7 +89,22 @@ const PostAdComp = () => {
     setisLoading(true);
     axios
       .post(`${process.env.REACT_APP_BASE_URL}/v1/ad`, data, config)
-      .then((data) => console.log("Added Successfully", data.data))
+      .then((data) => {
+        console.log("Added Successfully", data.data);
+        toast.success(`Successfully Posted the Ad.`, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+
+        setTimeout(() => {
+          navigate("/status");
+        }, 4000);
+      })
       .then(() => setisLoading(false))
       .catch((err) => {
         setisLoading(false);

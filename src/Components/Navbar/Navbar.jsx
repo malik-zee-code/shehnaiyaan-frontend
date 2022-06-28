@@ -73,8 +73,10 @@ const Navbar = () => {
                 <li className="mx-5  hover:underline hover:text-slate-500 text-slate-700">
                   {userType === "Admin" ? (
                     <Link to={"/admin/donation"}>Donation Approval</Link>
+                  ) : userType === "Receiver" ? (
+                    <Link to={"/status"}>Status</Link>
                   ) : (
-                    <Link to={"/about"}>About</Link>
+                    <Link to={'/about'}>About</Link>
                   )}
                 </li>
                 <li className="mx-5  hover:underline hover:text-slate-500 text-slate-700">
