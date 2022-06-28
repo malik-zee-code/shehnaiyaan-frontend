@@ -68,7 +68,6 @@ const DonationAds = () => {
       })
       .catch((err) => {
         setIsLoading(false);
-        console.log(err);
       });
   };
 
@@ -96,19 +95,19 @@ const DonationAds = () => {
 
             {donations?.length > 0 ? (
               donations?.map((donation, i) => (
-                <>
+                <React.Fragment key={i}>
                   {!donation.acceptance && (
-                    <tr key={i}>
+                    <tr>
                       <th>{i + 1}</th>
                       <td>{donation.donationAmount}</td>
                       <td>{donation.ad.totalAmount}</td>
                       <td>
-                        {donation.ad.totalAmount - donation.donationAmount}
+                        {donation.ad.totalAmount - donation.ad.amountPaid}
                       </td>
                       <td>{donation.date.slice(0, 10)}</td>
                       <th>
                         <label
-                          htmlFor="my-modal-5"
+                          htmlFor={`my-modal-${i}`}
                           className="btn btn-ghost btn-xs"
                           // onClick={detailBtnHandler.bind(null, ad._id)}
                         >
@@ -118,11 +117,13 @@ const DonationAds = () => {
                         {/* <!-- Put this part before </body> tag --> */}
                         <input
                           type="checkbox"
-                          id="my-modal-5"
+                          id={`my-modal-${i}`}
                           className="modal-toggle"
                         />
+
+                        {/* ================================= MODAL ================================= */}
                         <div className="modal ">
-                          <div className="modal-box w-4/6 max-w-5xl min-h-4/6 bg-white ">
+                          <div className="modal-box w-3/6 max-w-5xl min-h-4/6 bg-white ">
                             <div className="flex flex-col w-full h-full items-center">
                               <h1 className="font-bold text-3xl text-slate-800">
                                 {" "}
@@ -140,25 +141,26 @@ const DonationAds = () => {
                                 <span>
                                   Remaining Amount :{" "}
                                   {donation.ad.totalAmount -
-                                    donation.donationAmount}
+                                    (donation.ad.amountPaid +
+                                      donation.donationAmount)}
                                 </span>
 
                                 <img
                                   src={donation.donationProof}
                                   alt=""
-                                  className="mt-3 w-[200px] h-[200px] my-5 text-center"
+                                  className=" object-cover mt-3 w-[200px] h-[200px] my-5 text-center rounded-lg"
                                   onClick={() => setToggler(!toggler)}
                                 />
                                 <FsLightbox
                                   toggler={toggler}
-                                  sources={[donation?.donationProof]}
+                                  sources={[donation.donationProof]}
                                   key={i}
                                 />
                               </div>
 
                               <div className="modal-action mt-auto">
                                 <label
-                                  htmlFor="my-modal-5"
+                                  htmlFor={`my-modal-${i}`}
                                   className="btn btn-error text-white"
                                 >
                                   Close
@@ -180,10 +182,11 @@ const DonationAds = () => {
                             </div>
                           </div>
                         </div>
+                        {/* ================================= MODAL END ================================= */}
                       </th>
                     </tr>
                   )}
-                </>
+                </React.Fragment>
               ))
             ) : (
               <div className="w-full flex justify-center">

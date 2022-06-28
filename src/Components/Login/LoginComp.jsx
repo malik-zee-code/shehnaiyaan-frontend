@@ -53,10 +53,8 @@ const LoginComp = () => {
           draggable: true,
           progress: undefined,
         });
-        console.log(err);
       });
   };
-  console.log(userType);
   return (
     <div className=" w-full grid grid-cols-1 md:grid-cols-2 bg-login bg-cover p-10 py-20">
       <div className=" place-self-center">
