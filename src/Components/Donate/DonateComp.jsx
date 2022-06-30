@@ -122,7 +122,7 @@ const DonateComp = () => {
                     <span className=" overflow-x-auto h-[50px] p-1 w-32 text-center border-2 rounded-[1rem] ml-3 text-slate-700">
                       <ul className="overflow-x-auto list-disc text-left">
                         {ads.itemsNeeded.map((d, i) => (
-                          <li className="" key={i}>
+                          <li className="ml-3" key={i}>
                             {d}
                           </li>
                         ))}
@@ -148,7 +148,7 @@ const DonateComp = () => {
                   </div>
 
                   <label
-                    htmlFor="my-modal-5"
+                    htmlFor={`my-modal-${i}`}
                     className=" btn border-none  mt-auto bg-slate-300 w-full rounded-[1rem] hover:bg-slate-400 text-black"
                   >
                     {" "}
@@ -159,7 +159,7 @@ const DonateComp = () => {
 
                   <input
                     type="checkbox"
-                    id="my-modal-5"
+                    id={`my-modal-${i}`}
                     className="modal-toggle"
                   />
                   <div className="modal ">
@@ -200,7 +200,7 @@ const DonateComp = () => {
                             />
                           </div>
                           <div className="modal-action mt-auto">
-                            <label htmlFor="my-modal-5" className="btn ">
+                            <label htmlFor={`my-modal-${i}`} className="btn ">
                               Close
                             </label>
                           </div>
@@ -274,7 +274,7 @@ const DonateComp = () => {
                             />
                             <div className="mt-auto ">
                               <label
-                                htmlFor="my-modal-5"
+                                htmlFor={`my-modal-${i}`}
                                 className="btn mr-3"
                                 onClick={() =>
                                   setPaymentinfo({

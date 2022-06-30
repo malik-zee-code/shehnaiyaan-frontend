@@ -52,8 +52,8 @@ const Landing = () => {
           pariatur cumque.
         </span>
 
-        <div className="grid grid-cols-2 md:grid-cols-3  gap-8 mt-10 ">
-          <div className=" flex flex-col items-center shadow-md hover:shadow-2xl  md:h-[550px] bg-white rounded-md">
+        <div className="grid grid-cols-1 md:grid-cols-3  gap-8 mt-10 ">
+          <div className=" flex flex-col items-center shadow-md hover:shadow-2xl  h-[550px] bg-white rounded-md">
             <img
               src={pic1}
               alt=""
@@ -83,14 +83,18 @@ const Landing = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 text-slate-700">
-        <img src={pic4} alt="" className=" w-[600px] place-self-center " />
-        <div className=" mt-4 flex flex-col items-center md:items-end md:text-right place-self-center">
+        <img
+          src={pic4}
+          alt=""
+          className=" w-[400px] md:w-[600px] place-self-center "
+        />
+        <div className=" mt-4 flex flex-col md:items-left md:text-left place-self-center">
           <span className="font-serif text-3xl">Learn About Us</span>
           <span className="my-5">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
             nostrum consectetur facilis quibusdam quis libero expedita soluta.
           </span>
-          <button className="mx-3 p-3 bg-indigo-500 rounded-tl-[18px] rounded-br-[18px] text-white px-8">
+          <button className=" btn border-none hover:bg-indigo-600 mx-3 p-3 bg-indigo-500 rounded-tl-[18px] rounded-br-[18px] text-white px-8">
             Want to Know More?
           </button>
         </div>

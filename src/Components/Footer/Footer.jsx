@@ -1,60 +1,139 @@
-import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import { faPhone } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import instagram from "../../Assets/instagram.png";
-import facebook from "../../Assets/facebook.png";
-import linkedIn from "../../Assets/linkedin.png";
-import gmail from "../../Assets/gmail.png";
 import React from "react";
-
+import pic from '../../Assets/NavBarLogoTrans.png'
 const Footer = () => {
   return (
-    <div className="w-full mt-auto h-auto grid grid-cols-2 md:grid-cols-2 bg-slate-800 text-white p-10 py-5 ">
-      <div className="flex flex-col justify-center text-xs md:text-lg">
-        <span className="">
-          <FontAwesomeIcon icon={faPhone} className="mr-2" /> 038273647866
-        </span>
-        <span className="break-words">
-          <FontAwesomeIcon icon={faEnvelope} className="mr-2 " />
-          shehnaiyan.business@gmail.com
-        </span>
-        <span></span>
-      </div>
-      <div className="flex flex-col items-center">
-        <span className=" text-sm  md:text-lg font-bold ">Follow Us</span>
-        <div className=" flex justify-between text-sm md:text-lg ">
-          <img
-            src={instagram}
-            alt=""
-            className=" w-[30px] md:w-[40px] cursor-pointer p-2"
-          />
-          <img
-            src={facebook}
-            alt=""
-            className="md:w-[40px] w-[30px]  cursor-pointer p-2 "
-          />
-          <img
-            src={linkedIn}
-            alt=""
-            className="md:w-[40px] w-[30px]  cursor-pointer p-2"
-          />
-          <img
-            src={gmail}
-            alt=""
-            className="md:w-[40px] w-[30px]  cursor-pointer p-2"
-          />
+    <>
+      <footer className="footer p-10 bg-base-200 text-base-content mt-auto">
+        <div>
+          <span className="footer-title">Services</span>
+          <a className="link link-hover" href="/home">
+            Branding
+          </a>
+          <a className="link link-hover" href="/home">
+            Design
+          </a>
+          <a className="link link-hover" href="/home">
+            Marketing
+          </a>
+          <a className="link link-hover" href="/home">
+            Advertisement
+          </a>
         </div>
-      </div>
-
-      {/* <ul className="flex justify-between text-bold text-lg font-sans my-5 ">
-        <li className="hover:underline hover:text-slate-500 ">
-          <Link to={"/postAd"}>Post Ad</Link>
-        </li>{" "}
-        <li className=" hover:underline hover:text-slate-500 ">
-          <Link to={"/donate"}>Donate</Link>
-        </li>
-      </ul> */}
-    </div>
+        <div>
+          <span className="footer-title">Company</span>
+          <a className="link link-hover" href="/home">
+            Home
+          </a>
+          <a className="link link-hover" href="/about">
+            About us
+          </a>
+          <a className="link link-hover" href="/contact">
+            Contact
+          </a>
+        </div>
+        <div>
+          <span className="footer-title">Legal</span>
+          <a className="link link-hover" href="/term-of-use">
+            Terms of use
+          </a>
+          <a className="link link-hover" href="/privacy-policy">
+            Privacy policy
+          </a>
+          <a className="link link-hover" href="/cookie-policy">
+            Cookie policy
+          </a>
+        </div>
+      </footer>
+      <footer className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
+        <div className="items-center grid-flow-col">
+          {/* <svg
+            xmlns="http://www.w3.org/2000/svg"
+            version="1.0"
+            width="179.000000pt"
+            height="100.000000pt"
+            viewBox="0 0 179.000000 100.000000"
+            className="fill-current"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <g
+              transform="translate(0.000000,100.000000) scale(0.100000,-0.100000)"
+              fill="#000000"
+              stroke="none"
+            >
+              <path d="M1107 763 c-16 -4 -18 -10 -11 -41 4 -21 8 -51 8 -69 1 -17 3 -30 6 -28 3 2 6 -5 6 -15 0 -10 -4 -16 -8 -14 -4 3 -6 -11 -4 -31 1 -19 -1 -35 -6 -35 -4 0 -8 -5 -8 -11 0 -5 4 -8 9 -5 5 3 2 -22 -5 -57 -19 -87 -29 -227 -17 -227 5 0 18 39 27 87 9 47 36 138 60 202 49 131 79 231 73 238 -8 7 -110 12 -130 6z" />
+              <path d="M476 603 c-4 -60 -9 -142 -11 -183 -4 -51 -2 -69 4 -55 5 11 10 39 10 63 1 47 24 112 40 112 7 0 12 -39 13 -102 l1 -103 7 105 c3 58 2 116 -3 130 l-9 25 -20 -25 -21 -25 6 83 c4 45 3 82 -2 82 -5 0 -11 -48 -15 -107z" />
+              <path d="M706 603 c-4 -60 -9 -142 -11 -183 -4 -51 -2 -69 4 -55 5 11 10 39 10 63 1 47 24 112 40 112 7 0 12 -39 13 -102 l1 -103 7 105 c3 58 2 116 -3 130 l-9 25 -20 -25 -21 -25 6 83 c4 45 3 82 -2 82 -5 0 -11 -48 -15 -107z" />
+              <path d="M1045 677 c-4 -10 -5 -21 -1 -24 10 -10 18 4 13 24 -4 17 -4 17 -12 0z" />
+              <path d="M360 638 c-20 -44 -25 -85 -12 -103 4 -6 19 -18 35 -28 22 -14 27 -25 27 -56 0 -60 -59 -98 -75 -48 l-8 22 -4 -22 c-6 -30 13 -63 37 -63 44 0 83 104 63 167 -5 15 -22 34 -36 41 -44 22 -30 92 19 92 33 0 29 33 -4 38 -18 3 -26 -5 -42 -40z" />
+              <path d="M816 505 c-4 -55 -10 -112 -12 -127 -3 -17 -1 -28 5 -28 6 0 11 18 11 40 0 56 19 137 36 151 12 10 14 -4 14 -96 0 -60 2 -106 4 -104 2 2 6 54 10 114 7 126 -1 156 -33 115 l-19 -24 -4 29 c-2 17 -7 -15 -12 -70z" />
+              <path d="M606 568 c-17 -27 -35 -100 -36 -143 0 -34 19 -76 37 -82 16 -5 53 32 53 54 0 15 -2 14 -20 -2 -21 -19 -50 -14 -50 10 0 8 16 35 35 61 36 47 42 72 25 105 -14 25 -26 24 -44 -3z m39 -28 c3 -5 -8 -24 -24 -42 -22 -24 -30 -28 -31 -16 -1 47 37 87 55 58z" />
+              <path d="M946 571 c-24 -26 -36 -77 -36 -147 0 -67 17 -97 43 -75 8 6 17 7 23 1 5 -5 10 37 11 110 2 92 -1 119 -11 123 -8 3 -21 -2 -30 -12z m25 -102 c-2 -79 -10 -96 -37 -85 -14 5 -16 15 -11 67 13 121 52 136 48 18z" />
+              <path d="M1236 568 c-23 -36 -39 -114 -33 -164 6 -56 19 -73 42 -54 14 11 18 11 25 1 4 -8 10 36 12 100 4 106 -1 139 -23 139 -5 0 -15 -10 -23 -22z m30 -95 c-8 -86 -11 -93 -33 -93 -13 0 -15 12 -11 69 3 65 18 101 41 101 6 0 7 -27 3 -77z" />
+              <path d="M1346 571 c-24 -26 -36 -77 -36 -147 0 -67 17 -97 43 -75 8 6 17 7 23 1 5 -5 10 37 11 110 2 92 -1 119 -11 123 -8 3 -21 -2 -30 -12z m25 -102 c-2 -79 -10 -96 -37 -85 -14 5 -16 15 -11 67 13 121 52 136 48 18z" />
+              <path d="M1427 508 c-4 -46 -6 -103 -6 -128 1 -35 4 -26 14 40 12 86 29 135 44 126 4 -3 7 -52 5 -108 -2 -68 0 -94 5 -78 5 14 9 69 10 122 1 101 -10 128 -36 93 -12 -17 -13 -17 -13 -2 0 9 -4 17 -9 17 -4 0 -11 -37 -14 -82z" />
+              <path d="M1036 558 c-11 -53 -17 -213 -8 -203 10 11 27 225 18 225 -3 0 -8 -10 -10 -22z" />
+            </g>
+          </svg> */}
+          <img src={pic} alt="" />
+          <p>
+            Shehnaiyaan <br />
+            Providing reliable tech since 1992
+          </p>
+        </div>
+        <div className="md:place-self-center md:justify-self-end">
+          <div className="grid grid-flow-col gap-4">
+            <a href="#/">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                className="fill-current"
+              >
+                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+              </svg>
+            </a>
+            <a href="#/">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                class="bi bi-instagram"
+                viewBox="0 0 16 16"
+              >
+                {" "}
+                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />{" "}
+              </svg>
+            </a>
+            <a href="#/">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                className="fill-current"
+              >
+                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+              </svg>
+            </a>
+            <a href="#/">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                class="bi bi-linkedin"
+                viewBox="0 0 16 16"
+              >
+                {" "}
+                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />{" "}
+              </svg>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 };
 

@@ -56,13 +56,13 @@ const LoginComp = () => {
       });
   };
   return (
-    <div className=" w-full grid grid-cols-1 md:grid-cols-2 bg-login bg-cover p-10 py-20">
+    <div className="  w-full grid grid-cols-1 md:grid-cols-2 bg-login bg-cover p-10 py-20">
       <div className=" place-self-center">
         <img src={login} alt="" className="w-[500px] md:mb-6 " />
       </div>
       <form
         onSubmit={submitHandler}
-        className="md:place-self-left place-self-center w-[500px] min-h-[500px] bg-[#E6EFF8] rounded-lg p-10 flex flex-col items-center "
+        className="  mt-8 md:mt-0 md:place-self-left place-self-center w-[430px] min-h-[450px] bg-[#E6EFF8] rounded-lg p-10 flex flex-col items-center "
       >
         <span className=" text-3xl font-medium font-mono text-slate-900">
           Login
@@ -103,12 +103,12 @@ const LoginComp = () => {
           </select>
         </div>
 
-        <a href="/" className="text-indigo-400 mt-auto">
+        <a href="/" className="text-indigo-400 mt-3">
           {" "}
           Forgot Password ?
         </a>
 
-        <div className="flex flex-col items-center mt-2 ">
+        <div className="flex flex-col items-center mt-auto ">
           <button
             className=" btn border-none w-full p-3 my-3 hover:bg-indigo-600 bg-indigo-500   text-white px-8 text-center"
             // disabled={}
