@@ -21,7 +21,6 @@ const DonationAds = () => {
       .get(`${process.env.REACT_APP_BASE_URL}/v1/donation`, config)
       .then((data) => {
         setDonations(data.data);
-        console.log(data.data);
       })
       .catch((err) => console.log(err));
   }, [token]);
@@ -42,7 +41,6 @@ const DonationAds = () => {
       .then((data) => console.log("Donation Accepted = true", data.data))
       .catch((err) => {
         setIsLoading(false);
-        console.log(err);
       });
 
     const data = {

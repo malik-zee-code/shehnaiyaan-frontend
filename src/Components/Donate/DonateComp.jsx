@@ -97,7 +97,6 @@ const DonateComp = () => {
   useEffect(() => {
     fetchData();
   }, [fetchData]);
-  console.log(paymentInfo.method);
 
   return (
     <div className="w-full h-auto flex justify-center items-center mt-10 mb-5">

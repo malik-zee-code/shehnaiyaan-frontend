@@ -13,7 +13,6 @@ const PendingAdDetail = () => {
   const [isLoading, setisLoading] = useState();
   const params = useParams();
   const navigate = useNavigate();
-  console.log(params.id);
 
   const token = localStorage.getItem("token");
   const fetchData = useCallback(() => {
@@ -24,11 +23,10 @@ const PendingAdDetail = () => {
     };
     axios
       .get(
-        `${process.env.REACT_APP_BASE_URL}/v1/ad/pending/${params.id}`,
+        `${process.env.REACT_APP_BASE_URL}/v1/ad/pending/${params.adid}`,
         config
       )
       .then((data) => {
-        console.log(data.data);
         setAd(data.data);
       })
       .catch((err) => console.log(err));
@@ -61,7 +59,6 @@ const PendingAdDetail = () => {
           progress: undefined,
         });
         navigate("/admin/pendingAds");
-        console.log(data.data);
       })
       .catch((err) => {
         setisLoading(false);
@@ -74,7 +71,6 @@ const PendingAdDetail = () => {
           draggable: true,
           progress: undefined,
         });
-        console.log(err);
       });
   };
 

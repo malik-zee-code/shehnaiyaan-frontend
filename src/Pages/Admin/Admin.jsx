@@ -12,7 +12,7 @@ const Admin = () => {
         <Route path="donation" element={<DonationAds />} />
         <Route path="donation/:id" element={<DonationAdDetail />} />
         <Route path="pendingAds" element={<PendingAds />} />
-        <Route path="pendingAds/:id" element={<PendingAdDetail />} />
+        <Route path="pendingAds/:adid" element={<PendingAdDetail />} />
       </Routes>
     </div>
   );

@@ -8,8 +8,6 @@ import { toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 
-// import drop from "../../Assets/DropDown-purple.png";
-
 const Navbar = () => {
   const [toggler, setToggler] = useState();
 
@@ -46,7 +44,6 @@ const Navbar = () => {
               className=" btn outline-none flex text-center mx-3 p-3 border-none bg-indigo-500 hover:bg-indigo-700 rounded-tl-[18px] rounded-br-[18px] text-white px-8"
             >
               LOGIN
-              {/* <img src={drop} alt="" className=" ml-7 w-[18px] h-[18px]" /> */}
             </Link>
             <Link
               to={"/register"}
@@ -76,7 +73,7 @@ const Navbar = () => {
                   ) : userType === "Receiver" ? (
                     <Link to={"/status"}>Status</Link>
                   ) : (
-                    <Link to={'/about'}>About</Link>
+                    <Link to={"/about"}>About</Link>
                   )}
                 </li>
                 <li className="mx-5  hover:underline hover:text-slate-500 text-slate-700">

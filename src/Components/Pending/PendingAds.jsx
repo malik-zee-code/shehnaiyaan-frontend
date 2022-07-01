@@ -15,7 +15,6 @@ const PendingAds = () => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/v1/ad/pending`, config)
       .then((data) => {
-        console.log("Data", data.data);
         setAds(data.data);
       })
       .catch((err) => console.log(err));

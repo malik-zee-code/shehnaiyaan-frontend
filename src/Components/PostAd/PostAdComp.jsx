@@ -55,7 +55,6 @@ const PostAdComp = () => {
       setState((prev) => ({ ...prev, CNICImage: reader.result }));
     };
   };
-  console.log(state.CNICImage)
   //===========================================================================
 
   const submitHandler = (e) => {
@@ -109,7 +108,6 @@ const PostAdComp = () => {
       .then(() => setisLoading(false))
       .catch((err) => {
         setisLoading(false);
-        console.log(err);
         toast.error(`${err.response.data.error}`, {
           position: "top-center",
           autoClose: 5000,
@@ -121,11 +119,9 @@ const PostAdComp = () => {
         });
       });
   };
-  // console.log(state.itemsNeeded);
 
   const handleCheckBox = (e) => {
     const { value, checked } = e.target;
-    // setLanguages((prev) => ({ ...prev, [name]: checked }));
     if (checked) {
       setState((prev) => ({
         ...prev,
@@ -133,7 +129,6 @@ const PostAdComp = () => {
       }));
     }
   };
-  console.log(state.totalAmount);
 
   return (
     <div className="flex justify-center items-center bg-postAd bg-cover  ">
