@@ -47,22 +47,31 @@ const StatusComp = () => {
                 <th>{i + 1}</th>
                 <td>{ad.totalAmount}</td>
                 <td>{ad.amountPaid}</td>
-                <td>{ad.totalAmount - ad.amountPaid}</td>
+                <td>
+                  {ad.totalAmount - ad.amountPaid < 0
+                    ? "0"
+                    : ad.totalAmount - ad.amountPaid}
+                </td>
                 <td>{ad.date.slice(0, 10)}</td>
                 <td>{ad.deliveryDate.slice(0, 10)}</td>
                 <td className="">
                   {ad.status === "Completed" ? (
-                    <span className="btn btn-success text-white">
+                    <span className="btn btn-success btn-active no-animation text-white">
                       {" "}
                       {ad.status}{" "}
                     </span>
                   ) : ad.status === "Live" ? (
-                    <span className="btn btn-info w-[80px] text-white">
+                    <span className="btn btn-info btn-active no-animation w-[80px] text-white">
                       {" "}
                       {ad.status}{" "}
                     </span>
+                  ) : ad.status === "Reject" ? (
+                    <span className="btn btn-warning btn-active no-animation text-white">
+                      {" "}
+                      {ad.status}ed{" "}
+                    </span>
                   ) : (
-                    <span className="btn btn-error text-white">
+                    <span className="btn btn-error btn-active no-animation text-white">
                       {" "}
                       {ad.status}{" "}
                     </span>

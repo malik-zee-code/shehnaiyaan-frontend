@@ -55,6 +55,7 @@ const PostAdComp = () => {
       setState((prev) => ({ ...prev, CNICImage: reader.result }));
     };
   };
+  console.log(state.CNICImage)
   //===========================================================================
 
   const submitHandler = (e) => {
@@ -120,7 +121,7 @@ const PostAdComp = () => {
         });
       });
   };
-  console.log(state.itemsNeeded);
+  // console.log(state.itemsNeeded);
 
   const handleCheckBox = (e) => {
     const { value, checked } = e.target;
@@ -132,7 +133,7 @@ const PostAdComp = () => {
       }));
     }
   };
-  // console.log(languages);
+  console.log(state.totalAmount);
 
   return (
     <div className="flex justify-center items-center bg-postAd bg-cover  ">
@@ -330,7 +331,6 @@ const PostAdComp = () => {
                 name="Washing machine"
                 id="machine"
                 value="Washing machine"
-                // checked={languages["Washing machine"]}
                 onChange={handleCheckBox}
               />
               <label htmlFor="machine" className="ml-3 text-slate-700">

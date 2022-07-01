@@ -40,7 +40,7 @@ const PendingAdDetail = () => {
         "x-auth-token": token,
       },
     };
-    if (status !== "Live") return;
+    if (status ===  "Pending") return;
 
     setisLoading(true);
     axios
@@ -140,7 +140,8 @@ const PendingAdDetail = () => {
               <option disabled selected>
                 {ad?.status}
               </option>
-              <option>Live</option>
+              <option value={"Live"}>Live</option>
+              <option value={"Reject"}>Reject</option>
             </select>
           </div>
           <span className="mt-10 ml-20 text-indigo-600 font-medium text-lg">

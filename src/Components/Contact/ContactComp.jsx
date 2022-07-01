@@ -6,7 +6,7 @@ import instagram from "../../Assets/instagram.png";
 import facebook from "../../Assets/facebook.png";
 import linkedIn from "../../Assets/linkedin.png";
 import gmail from "../../Assets/gmail.png";
-import axios from "axios";
+// import axios from "axios";
 
 const ContactComp = () => {
   const [fullName, setFullName] = useState();
@@ -19,10 +19,9 @@ const ContactComp = () => {
       email: email,
       message: message,
     };
+    console.log(data);
 
     // Post request
-
-    axios.post();
   };
 
   return (

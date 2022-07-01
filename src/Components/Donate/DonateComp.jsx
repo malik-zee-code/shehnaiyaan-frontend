@@ -10,8 +10,9 @@ const DonateComp = () => {
   const [ads, setAds] = useState();
   const [isLoading, setisLoading] = useState();
   const [toggler, setToggle] = useState();
+  const [method, setMethod] = useState();
   const [paymentInfo, setPaymentinfo] = useState({
-    step: 0,
+    step: 1,
     paymentMethod: "",
     amountImg: "",
     phNumber: "",
@@ -50,8 +51,8 @@ const DonateComp = () => {
   const donateHandler = (id) => {
     setisLoading(true);
     const data = {
-      donationAmount: paymentInfo.donationAmount,
       donationProof: paymentInfo.amountImg,
+      method: method,
     };
 
     const config = {
@@ -96,6 +97,7 @@ const DonateComp = () => {
   useEffect(() => {
     fetchData();
   }, [fetchData]);
+  console.log(paymentInfo.method);
 
   return (
     <div className="w-full h-auto flex justify-center items-center mt-10 mb-5">
@@ -115,20 +117,6 @@ const DonateComp = () => {
                   <h2 className="text-2xl font-medium text-slate-800">
                     Ad no {i + 1}
                   </h2>
-                  <div className="flex items-center mt-6 ">
-                    <label htmlFor="" className="text-black">
-                      Items Needed:{" "}
-                    </label>
-                    <span className=" overflow-x-auto h-[50px] p-1 w-32 text-center border-2 rounded-[1rem] ml-3 text-slate-700">
-                      <ul className="overflow-x-auto list-disc text-left">
-                        {ads.itemsNeeded.map((d, i) => (
-                          <li className="ml-3" key={i}>
-                            {d}
-                          </li>
-                        ))}
-                      </ul>
-                    </span>
-                  </div>
                   <div className="flex items-center mt-2">
                     <label htmlFor="" className="text-black">
                       {" "}
@@ -136,6 +124,14 @@ const DonateComp = () => {
                     </label>
                     <span className="p-1 px-8 w-32 text-center border-2 rounded-[1rem] ml-3 text-slate-700">
                       {ads.totalAmount}
+                    </span>
+                  </div>
+                  <div className="flex items-center mt-2  ">
+                    <label htmlFor="" className="text-black mr-4">
+                      Remaining:{" "}
+                    </label>
+                    <span className=" p-1 px-8 w-32 text-center border-2 rounded-[1rem] ml-3 text-slate-700">
+                      {ads.totalAmount - ads.amountPaid}
                     </span>
                   </div>
                   <div className="flex items-center my-2">
@@ -164,48 +160,7 @@ const DonateComp = () => {
                   />
                   <div className="modal ">
                     <div className="modal-box w-11/12 max-w-5xl min-h-[400px] flex flex-col bg-white">
-                      {paymentInfo.step === 0 ? (
-                        <>
-                          <h1 className="text-xl underline text-black font-medium">
-                            Choose Your Payment Method.
-                          </h1>
-                          <div className="flex justify-around mt-4">
-                            <img
-                              src="https://upload.wikimedia.org/wikipedia/en/b/b4/JazzCash_logo.png"
-                              alt=""
-                              width={400}
-                              height={200}
-                              className="hover:bg-slate-100 p-4 rounded-3xl "
-                              onClick={() =>
-                                setPaymentinfo({
-                                  ...paymentInfo,
-                                  step: 1,
-                                  paymentMethod: "JazzCash",
-                                })
-                              }
-                            />
-                            <img
-                              src="https://www.phoneworld.com.pk/wp-content/uploads/2022/05/IMG_2796-1.jpg"
-                              alt=""
-                              width={300}
-                              height={200}
-                              className="hover:bg-slate-100 p-4 rounded-3xl "
-                              onClick={() =>
-                                setPaymentinfo({
-                                  ...paymentInfo,
-                                  step: 1,
-                                  paymentMethod: "EasyPaisa",
-                                })
-                              }
-                            />
-                          </div>
-                          <div className="modal-action mt-auto">
-                            <label htmlFor={`my-modal-${i}`} className="btn ">
-                              Close
-                            </label>
-                          </div>
-                        </>
-                      ) : (
+                      {paymentInfo.step === 1 && (
                         <>
                           <form
                             className="flex flex-col items-center p-4 h-full "
@@ -223,31 +178,43 @@ const DonateComp = () => {
                               Donation Need {ads.totalAmount - ads.amountPaid}{" "}
                               PKR
                             </h1>
-                            <input
-                              onChange={(e) =>
-                                setPaymentinfo((prev) => ({
-                                  ...prev,
-                                  phNumber: e.target.value,
-                                }))
-                              }
-                              required
-                              type="text"
-                              placeholder="03xxxxxxxxx"
-                              className="input w-full max-w-xs mt-10 bg-slate-100 text-md text-slate-600"
-                            />
-                            <input
-                              onChange={(e) =>
-                                setPaymentinfo((prev) => ({
-                                  ...prev,
-                                  donationAmount: e.target.value,
-                                }))
-                              }
-                              required
-                              type="number"
-                              placeholder="Enter Amount"
-                              className="input w-full max-w-xs mt-5 bg-slate-100 text-md text-slate-600"
-                              max={ads.totalAmount}
-                            />
+
+                            <select
+                              className="select select-info w-full max-w-xs bg-slate-100 text-black mt-5"
+                              onChange={(e) => setMethod(e.target.value)}
+                            >
+                              <option disabled selected>
+                                Select Payment Method
+                              </option>
+                              <option>HBL Bank </option>
+                              <option>JazzCash</option>
+                              <option>EasyPaisa</option>
+                            </select>
+
+                            {method === "HBL Bank" ? (
+                              <>
+                                <span className="my-4 text-slate-700">
+                                  {" "}
+                                  HBL Account Number : 453984952382657{" "}
+                                </span>
+                              </>
+                            ) : method === "JazzCash" ? (
+                              <>
+                                <span className="my-4 text-slate-700">
+                                  {" "}
+                                  JazzCash Acc : 03472834683
+                                </span>
+                              </>
+                            ) : (
+                              <>
+                                {" "}
+                                <span className="my-4 text-slate-700">
+                                  {" "}
+                                  EasyPaisa Acc: 03238426384{" "}
+                                </span>{" "}
+                              </>
+                            )}
+
                             <label htmlFor="donate" className="m-2">
                               Attach the Screenshot of your Sent Amount{" "}
                             </label>
@@ -255,7 +222,7 @@ const DonateComp = () => {
                               type="file"
                               name=""
                               id="donate"
-                              className="my-2 "
+                              className="my-2"
                               onChange={handleAmountimg}
                               required
                             />
@@ -272,20 +239,12 @@ const DonateComp = () => {
                               key={1}
                               className=""
                             />
-                            <div className="mt-auto ">
+                            <div className="mt-auto  modal-action ">
                               <label
                                 htmlFor={`my-modal-${i}`}
                                 className="btn mr-3"
-                                onClick={() =>
-                                  setPaymentinfo({
-                                    ...paymentInfo,
-                                    step: 0,
-                                    paymentMethod: "",
-                                    amountImg: "",
-                                  })
-                                }
                               >
-                                Back
+                                Close
                               </label>
                               <button
                                 className={`btn ${

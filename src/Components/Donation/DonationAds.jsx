@@ -1,6 +1,6 @@
 import axios from "axios";
 import FsLightbox from "fslightbox-react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useCallback } from "react";
 import { toast } from "react-toastify";
 
@@ -8,6 +8,8 @@ const DonationAds = () => {
   const [donations, setDonations] = useState();
   const [toggler, setToggler] = useState();
   const [isLoading, setIsLoading] = useState();
+
+  const donationRef = useRef();
   const token = localStorage.getItem("token");
   const fetchData = useCallback(() => {
     const config = {
@@ -24,7 +26,7 @@ const DonationAds = () => {
       .catch((err) => console.log(err));
   }, [token]);
 
-  const approveDonationHandler = (donationId, adId, donationAmount) => {
+  const approveDonationHandler = (donationId, adId) => {
     setIsLoading(true);
     const config = {
       headers: {
@@ -44,7 +46,7 @@ const DonationAds = () => {
       });
 
     const data = {
-      donation: donationAmount,
+      donation: donationRef.current.value,
     };
 
     axios
@@ -132,18 +134,24 @@ const DonationAds = () => {
                               <br />
 
                               <div className=" mt-10 flex flex-col font-medium text-xl text-slate-600">
+                                <span className="text-slate-700  ">
+                                  Donation Method : {donation?.method}
+                                </span>
                                 <span>
                                   Total Amount : {donation.ad.totalAmount}
                                 </span>
                                 <span>
-                                  Donation Amount : {donation.donationAmount}
-                                </span>
-                                <span>
                                   Remaining Amount :{" "}
                                   {donation.ad.totalAmount -
-                                    (donation.ad.amountPaid +
-                                      donation.donationAmount)}
+                                    donation.ad.amountPaid}
                                 </span>
+                                <input
+                                  ref={donationRef}
+                                  required
+                                  type="number"
+                                  placeholder="Donation Amount"
+                                  className="input w-full max-w-xs mt-5 bg-slate-100 text-md text-slate-600"
+                                />
 
                                 <img
                                   src={donation.donationProof}
@@ -166,14 +174,19 @@ const DonationAds = () => {
                                   Close
                                 </label>
                                 <label
+                                  htmlFor={`my-modal-${i}`}
+                                  className="btn btn-error text-white"
+                                >
+                                  Reject
+                                </label>
+                                <label
                                   className={`btn ${
                                     isLoading && "loading"
                                   } text-white`}
                                   onClick={approveDonationHandler.bind(
                                     null,
                                     donation._id,
-                                    donation.ad._id,
-                                    donation.donationAmount
+                                    donation.ad._id
                                   )}
                                 >
                                   {isLoading ? "Approving" : "Approve Donation"}
