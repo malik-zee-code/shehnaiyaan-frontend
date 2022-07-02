@@ -2,10 +2,13 @@ import axios from "axios";
 import React, { useCallback } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const PendingAds = () => {
   const [ads, setAds] = useState();
   const token = localStorage.getItem("token");
+
+  const navigate = useNavigate();
   const fetchData = useCallback(() => {
     const config = {
       headers: {
@@ -21,7 +24,8 @@ const PendingAds = () => {
   }, [token]);
 
   const detailBtnHandler = (id) => {
-    window.location = `/admin/pendingAds/${id}`;
+    // window.location = `/admin/pendingAds/${id}`;
+    navigate(`/admin/pendingAds/${id}`);
   };
 
   useEffect(() => {
